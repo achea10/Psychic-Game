@@ -15,15 +15,11 @@ document.onkeyup = function(event) {
         if (userGuess === computerGuess) {
             alert("You Win! :)");
             wins++; 
-            guessesLeft = 10;
-            guessesThusFar.length = 0;
         }
 
         else if (guessesLeft === 0) {
             alert("You Lose :(");
             losses++;
-            guessesLeft = 10;
-            guessesThusFar.length = 0;
         }
 
         else if (userGuess !== computerGuess) {
@@ -38,4 +34,11 @@ document.onkeyup = function(event) {
     "<p>Your guesses, thus far: " + guessesThusFar + "</p>";
 
     document.getElementById("game").innerHTML = html;
-}
+
+    var reset = {
+        resetGame: function() {
+        guessesLeft = 10;
+        guessesThusFar.length = [];
+        computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]; 
+        } 
+} }
